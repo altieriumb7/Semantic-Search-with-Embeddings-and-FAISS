@@ -1,0 +1,597 @@
+{
+  "dataset": {
+    "type": "synthetic",
+    "description": "Synthetic support/product documentation with hand-labeled relevant document IDs.",
+    "num_queries": 14
+  },
+  "k": 5,
+  "metrics": {
+    "semantic": {
+      "precision_at_k": 0.2285714285714286,
+      "recall_at_k": 1.0,
+      "mrr": 1.0
+    },
+    "tfidf": {
+      "precision_at_k": 0.2285714285714286,
+      "recall_at_k": 1.0,
+      "mrr": 1.0
+    }
+  },
+  "per_query": {
+    "semantic": [
+      {
+        "query_id": "q_password",
+        "query": "I forgot my password and need a reset link",
+        "relevant_doc_ids": [
+          "acct_password_reset"
+        ],
+        "retrieved_doc_ids": [
+          "acct_password_reset",
+          "acct_mfa_setup",
+          "billing_refund_policy",
+          "billing_invoice_copy",
+          "data_retention_policy"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_mfa",
+        "query": "how do I enable an authenticator app for login security",
+        "relevant_doc_ids": [
+          "acct_mfa_setup"
+        ],
+        "retrieved_doc_ids": [
+          "acct_mfa_setup",
+          "acct_password_reset",
+          "integration_api_keys",
+          "security_audit_logs",
+          "mobile_push_notifications"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_invoice",
+        "query": "where can finance download monthly invoices and receipts",
+        "relevant_doc_ids": [
+          "billing_invoice_copy"
+        ],
+        "retrieved_doc_ids": [
+          "billing_invoice_copy",
+          "billing_refund_policy",
+          "search_export_limits",
+          "security_audit_logs",
+          "mobile_offline_mode"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_refund",
+        "query": "can I get a refund after canceling an annual subscription",
+        "relevant_doc_ids": [
+          "billing_refund_policy"
+        ],
+        "retrieved_doc_ids": [
+          "billing_refund_policy",
+          "acct_password_reset",
+          "billing_invoice_copy",
+          "data_retention_policy",
+          "mobile_push_notifications"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_export",
+        "query": "export search results to csv or excel with many records",
+        "relevant_doc_ids": [
+          "search_export_limits"
+        ],
+        "retrieved_doc_ids": [
+          "search_export_limits",
+          "search_query_filters",
+          "mobile_offline_mode",
+          "security_audit_logs",
+          "data_retention_policy"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_filters",
+        "query": "find documents by owner file type language and date range",
+        "relevant_doc_ids": [
+          "search_query_filters"
+        ],
+        "retrieved_doc_ids": [
+          "search_query_filters",
+          "data_retention_policy",
+          "search_export_limits",
+          "security_audit_logs",
+          "mobile_offline_mode"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_slack",
+        "query": "Slack channel alerts stopped after changing permissions",
+        "relevant_doc_ids": [
+          "integration_slack_alerts"
+        ],
+        "retrieved_doc_ids": [
+          "integration_slack_alerts",
+          "mobile_push_notifications",
+          "acct_password_reset",
+          "security_audit_logs",
+          "integration_api_keys"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_api_keys",
+        "query": "rotate a developer API key without downtime",
+        "relevant_doc_ids": [
+          "integration_api_keys"
+        ],
+        "retrieved_doc_ids": [
+          "integration_api_keys",
+          "billing_refund_policy",
+          "acct_password_reset",
+          "security_audit_logs",
+          "acct_mfa_setup"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_retention",
+        "query": "automatically delete old archived documents after retention period",
+        "relevant_doc_ids": [
+          "data_retention_policy"
+        ],
+        "retrieved_doc_ids": [
+          "data_retention_policy",
+          "search_query_filters",
+          "billing_refund_policy",
+          "mobile_offline_mode",
+          "search_export_limits"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_audit",
+        "query": "investigate sign in exports and permission changes in audit logs",
+        "relevant_doc_ids": [
+          "security_audit_logs"
+        ],
+        "retrieved_doc_ids": [
+          "security_audit_logs",
+          "search_export_limits",
+          "billing_invoice_copy",
+          "data_retention_policy",
+          "integration_slack_alerts"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_offline",
+        "query": "use mobile app documents when I have no internet connection",
+        "relevant_doc_ids": [
+          "mobile_offline_mode"
+        ],
+        "retrieved_doc_ids": [
+          "mobile_offline_mode",
+          "mobile_push_notifications",
+          "billing_invoice_copy",
+          "data_retention_policy",
+          "acct_mfa_setup"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_push",
+        "query": "phone notifications are not appearing on mobile app",
+        "relevant_doc_ids": [
+          "mobile_push_notifications"
+        ],
+        "retrieved_doc_ids": [
+          "mobile_push_notifications",
+          "integration_slack_alerts",
+          "mobile_offline_mode",
+          "acct_mfa_setup",
+          "acct_password_reset"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_security_keys",
+        "query": "which events show API key creation and password changes",
+        "relevant_doc_ids": [
+          "security_audit_logs",
+          "integration_api_keys"
+        ],
+        "retrieved_doc_ids": [
+          "security_audit_logs",
+          "integration_api_keys",
+          "acct_password_reset",
+          "integration_slack_alerts",
+          "acct_mfa_setup"
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_export_security",
+        "query": "who exported records and when does the export link expire",
+        "relevant_doc_ids": [
+          "search_export_limits",
+          "security_audit_logs"
+        ],
+        "retrieved_doc_ids": [
+          "search_export_limits",
+          "data_retention_policy",
+          "security_audit_logs",
+          "billing_refund_policy",
+          "billing_invoice_copy"
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      }
+    ],
+    "tfidf": [
+      {
+        "query_id": "q_password",
+        "query": "I forgot my password and need a reset link",
+        "relevant_doc_ids": [
+          "acct_password_reset"
+        ],
+        "retrieved_doc_ids": [
+          "acct_password_reset",
+          "security_audit_logs",
+          "data_retention_policy",
+          "mobile_offline_mode",
+          "mobile_push_notifications"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_mfa",
+        "query": "how do I enable an authenticator app for login security",
+        "relevant_doc_ids": [
+          "acct_mfa_setup"
+        ],
+        "retrieved_doc_ids": [
+          "acct_mfa_setup",
+          "mobile_push_notifications",
+          "integration_slack_alerts",
+          "mobile_offline_mode",
+          "data_retention_policy"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_invoice",
+        "query": "where can finance download monthly invoices and receipts",
+        "relevant_doc_ids": [
+          "billing_invoice_copy"
+        ],
+        "retrieved_doc_ids": [
+          "billing_invoice_copy",
+          "billing_refund_policy",
+          "security_audit_logs",
+          "data_retention_policy",
+          "mobile_push_notifications"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_refund",
+        "query": "can I get a refund after canceling an annual subscription",
+        "relevant_doc_ids": [
+          "billing_refund_policy"
+        ],
+        "retrieved_doc_ids": [
+          "billing_refund_policy",
+          "mobile_push_notifications",
+          "security_audit_logs",
+          "data_retention_policy",
+          "integration_api_keys"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_export",
+        "query": "export search results to csv or excel with many records",
+        "relevant_doc_ids": [
+          "search_export_limits"
+        ],
+        "retrieved_doc_ids": [
+          "search_export_limits",
+          "search_query_filters",
+          "data_retention_policy",
+          "mobile_offline_mode",
+          "mobile_push_notifications"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_filters",
+        "query": "find documents by owner file type language and date range",
+        "relevant_doc_ids": [
+          "search_query_filters"
+        ],
+        "retrieved_doc_ids": [
+          "search_query_filters",
+          "security_audit_logs",
+          "data_retention_policy",
+          "search_export_limits",
+          "mobile_offline_mode"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_slack",
+        "query": "Slack channel alerts stopped after changing permissions",
+        "relevant_doc_ids": [
+          "integration_slack_alerts"
+        ],
+        "retrieved_doc_ids": [
+          "integration_slack_alerts",
+          "mobile_push_notifications",
+          "billing_invoice_copy",
+          "mobile_offline_mode",
+          "data_retention_policy"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_api_keys",
+        "query": "rotate a developer API key without downtime",
+        "relevant_doc_ids": [
+          "integration_api_keys"
+        ],
+        "retrieved_doc_ids": [
+          "integration_api_keys",
+          "security_audit_logs",
+          "acct_mfa_setup",
+          "mobile_offline_mode",
+          "data_retention_policy"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_retention",
+        "query": "automatically delete old archived documents after retention period",
+        "relevant_doc_ids": [
+          "data_retention_policy"
+        ],
+        "retrieved_doc_ids": [
+          "data_retention_policy",
+          "acct_password_reset",
+          "mobile_offline_mode",
+          "search_query_filters",
+          "billing_refund_policy"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_audit",
+        "query": "investigate sign in exports and permission changes in audit logs",
+        "relevant_doc_ids": [
+          "security_audit_logs"
+        ],
+        "retrieved_doc_ids": [
+          "security_audit_logs",
+          "data_retention_policy",
+          "search_export_limits",
+          "acct_password_reset",
+          "mobile_offline_mode"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_offline",
+        "query": "use mobile app documents when I have no internet connection",
+        "relevant_doc_ids": [
+          "mobile_offline_mode"
+        ],
+        "retrieved_doc_ids": [
+          "mobile_offline_mode",
+          "data_retention_policy",
+          "mobile_push_notifications",
+          "search_query_filters",
+          "integration_slack_alerts"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_push",
+        "query": "phone notifications are not appearing on mobile app",
+        "relevant_doc_ids": [
+          "mobile_push_notifications"
+        ],
+        "retrieved_doc_ids": [
+          "mobile_push_notifications",
+          "mobile_offline_mode",
+          "integration_slack_alerts",
+          "acct_mfa_setup",
+          "data_retention_policy"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_security_keys",
+        "query": "which events show API key creation and password changes",
+        "relevant_doc_ids": [
+          "security_audit_logs",
+          "integration_api_keys"
+        ],
+        "retrieved_doc_ids": [
+          "security_audit_logs",
+          "integration_api_keys",
+          "acct_password_reset",
+          "mobile_offline_mode",
+          "integration_slack_alerts"
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      },
+      {
+        "query_id": "q_export_security",
+        "query": "who exported records and when does the export link expire",
+        "relevant_doc_ids": [
+          "search_export_limits",
+          "security_audit_logs"
+        ],
+        "retrieved_doc_ids": [
+          "search_export_limits",
+          "acct_password_reset",
+          "data_retention_policy",
+          "security_audit_logs",
+          "mobile_offline_mode"
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "mrr": 1.0
+      }
+    ]
+  },
+  "qualitative_examples": [
+    {
+      "query_id": "q_password",
+      "query": "I forgot my password and need a reset link",
+      "relevant_doc_ids": [
+        "acct_password_reset"
+      ],
+      "semantic_top_docs": [
+        "acct_password_reset",
+        "acct_mfa_setup",
+        "billing_refund_policy"
+      ],
+      "tfidf_top_docs": [
+        "acct_password_reset",
+        "security_audit_logs",
+        "data_retention_policy"
+      ]
+    },
+    {
+      "query_id": "q_mfa",
+      "query": "how do I enable an authenticator app for login security",
+      "relevant_doc_ids": [
+        "acct_mfa_setup"
+      ],
+      "semantic_top_docs": [
+        "acct_mfa_setup",
+        "acct_password_reset",
+        "integration_api_keys"
+      ],
+      "tfidf_top_docs": [
+        "acct_mfa_setup",
+        "mobile_push_notifications",
+        "integration_slack_alerts"
+      ]
+    },
+    {
+      "query_id": "q_invoice",
+      "query": "where can finance download monthly invoices and receipts",
+      "relevant_doc_ids": [
+        "billing_invoice_copy"
+      ],
+      "semantic_top_docs": [
+        "billing_invoice_copy",
+        "billing_refund_policy",
+        "search_export_limits"
+      ],
+      "tfidf_top_docs": [
+        "billing_invoice_copy",
+        "billing_refund_policy",
+        "security_audit_logs"
+      ]
+    },
+    {
+      "query_id": "q_refund",
+      "query": "can I get a refund after canceling an annual subscription",
+      "relevant_doc_ids": [
+        "billing_refund_policy"
+      ],
+      "semantic_top_docs": [
+        "billing_refund_policy",
+        "acct_password_reset",
+        "billing_invoice_copy"
+      ],
+      "tfidf_top_docs": [
+        "billing_refund_policy",
+        "mobile_push_notifications",
+        "security_audit_logs"
+      ]
+    },
+    {
+      "query_id": "q_export",
+      "query": "export search results to csv or excel with many records",
+      "relevant_doc_ids": [
+        "search_export_limits"
+      ],
+      "semantic_top_docs": [
+        "search_export_limits",
+        "search_query_filters",
+        "mobile_offline_mode"
+      ],
+      "tfidf_top_docs": [
+        "search_export_limits",
+        "search_query_filters",
+        "data_retention_policy"
+      ]
+    }
+  ],
+  "notes": [
+    "Metrics are computed on document IDs, while retrieval is performed over chunks.",
+    "RAG-style answer generation is intentionally excluded from retrieval metrics."
+  ]
+}

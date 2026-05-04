@@ -1,0 +1,14 @@
+{"query_id":"q_password","query":"I forgot my password and need a reset link","relevant_doc_ids":["acct_password_reset"]}
+{"query_id":"q_mfa","query":"how do I enable an authenticator app for login security","relevant_doc_ids":["acct_mfa_setup"]}
+{"query_id":"q_invoice","query":"where can finance download monthly invoices and receipts","relevant_doc_ids":["billing_invoice_copy"]}
+{"query_id":"q_refund","query":"can I get a refund after canceling an annual subscription","relevant_doc_ids":["billing_refund_policy"]}
+{"query_id":"q_export","query":"export search results to csv or excel with many records","relevant_doc_ids":["search_export_limits"]}
+{"query_id":"q_filters","query":"find documents by owner file type language and date range","relevant_doc_ids":["search_query_filters"]}
+{"query_id":"q_slack","query":"Slack channel alerts stopped after changing permissions","relevant_doc_ids":["integration_slack_alerts"]}
+{"query_id":"q_api_keys","query":"rotate a developer API key without downtime","relevant_doc_ids":["integration_api_keys"]}
+{"query_id":"q_retention","query":"automatically delete old archived documents after retention period","relevant_doc_ids":["data_retention_policy"]}
+{"query_id":"q_audit","query":"investigate sign in exports and permission changes in audit logs","relevant_doc_ids":["security_audit_logs"]}
+{"query_id":"q_offline","query":"use mobile app documents when I have no internet connection","relevant_doc_ids":["mobile_offline_mode"]}
+{"query_id":"q_push","query":"phone notifications are not appearing on mobile app","relevant_doc_ids":["mobile_push_notifications"]}
+{"query_id":"q_security_keys","query":"which events show API key creation and password changes","relevant_doc_ids":["security_audit_logs","integration_api_keys"]}
+{"query_id":"q_export_security","query":"who exported records and when does the export link expire","relevant_doc_ids":["search_export_limits","security_audit_logs"]}

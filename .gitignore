@@ -1,0 +1,18 @@
+__pycache__/
+.pytest_cache/
+.pytest_tmp/
+pytest-cache-files-*/
+.venv/
+venv/
+*.pyc
+.streamlit.log
+.streamlit.err
+
+# Generated retrieval artifacts
+indexes/*.index
+indexes/*.npy
+indexes/*.json
+indexes/*.joblib
+indexes/model_cache/
+reports/*.json
+!reports/evaluation_report.json
