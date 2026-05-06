@@ -7,7 +7,7 @@ from typing import Sequence
 
 from src.config import DEFAULT_MODEL_NAME, DEFAULT_TOP_K, EVALUATION_REPORT_PATH
 from src.data_loader import EvaluationQuery, load_evaluation_queries
-from src.metrics import aggregate_metrics, precision_at_k, recall_at_k, reciprocal_rank
+from src.metrics import aggregate_metrics, ndcg_at_k, precision_at_k, recall_at_k, reciprocal_rank, success_at_1
 from src.retrieval import SearchResult, SemanticSearcher, TfidfSearcher, result_doc_ids
 
 
@@ -19,6 +19,8 @@ def evaluate_results(results: Sequence[SearchResult], relevant_doc_ids: Sequence
         "precision_at_k": precision_at_k(retrieved_doc_ids, relevant, k),
         "recall_at_k": recall_at_k(retrieved_doc_ids, relevant, k),
         "mrr": reciprocal_rank(retrieved_doc_ids, relevant),
+        "success_at_1": success_at_1(retrieved_doc_ids, relevant),
+        "ndcg_at_k": ndcg_at_k(retrieved_doc_ids, relevant, k),
     }
 
 

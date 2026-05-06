@@ -9,7 +9,7 @@ Portfolio-quality semantic search project that replaces keyword-only retrieval w
 - Generates SentenceTransformers embeddings with `sentence-transformers/all-MiniLM-L6-v2`.
 - Builds and caches a FAISS inner-product index over normalized embeddings.
 - Builds and caches a TF-IDF keyword baseline.
-- Evaluates both methods with Recall@k, Precision@k, and MRR.
+- Evaluates both methods with Recall@k, Precision@k, MRR, Success@1, and nDCG@k.
 - Provides a Streamlit UI for side-by-side search comparison.
 - Keeps optional RAG-style answer drafting separate from retrieval metrics.
 
@@ -110,6 +110,8 @@ The evaluator writes `reports/evaluation_report.json` and prints summary metrics
 - Recall@k
 - Precision@k
 - MRR
+- Success@1
+- nDCG@k
 - qualitative examples comparing semantic and TF-IDF top documents
 
 This README does not claim a fixed percentage improvement. Run the evaluation script on the checked-in labels to compute the current results for your environment and any model changes.
@@ -145,7 +147,8 @@ The demo includes:
 ## Tests
 
 ```bash
-pytest
+pytest -q
+make test
 ```
 
 The tests cover chunking, embedding cache shape, FAISS indexing, semantic retrieval, TF-IDF retrieval, and metric computation. The FAISS indexing test is skipped automatically if FAISS is not installed.
