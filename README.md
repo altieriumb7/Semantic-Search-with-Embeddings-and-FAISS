@@ -158,6 +158,32 @@ The demo includes:
 - Recall@k, Precision@k, and MRR summary
 - optional extractive answer draft from retrieved context
 - optional PCA visualization of document embeddings
+- visitor-uploaded JSONL/CSV documents for temporary in-memory search
+- optional visitor-uploaded labeled queries for self-evaluation
+
+### Try Your Own Data
+
+Visitors can use the `Try Your Own Data` tab to upload a small JSONL or CSV document set. Uploads are processed in memory for the current session only and are not saved by the app.
+
+Document upload schema:
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| `text` | yes | Document body to search |
+| `doc_id` | no | Defaults to `custom_doc_N`; use letters, numbers, dots, dashes, underscores, or colons |
+| `title` | no | Defaults to `doc_id` |
+| `category` | no | Defaults to `custom` |
+| `source` | no | Defaults to `visitor_upload` |
+
+Optional evaluation upload schema:
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| `query` | yes | Search query |
+| `relevant_doc_ids` | yes | Comma- or semicolon-separated document IDs in CSV, or a list in JSONL |
+| `query_id` | no | Defaults to `custom_query_N` |
+
+Limits keep the public demo responsive: uploads are capped at 1 MB, 25 documents, and 50,000 total text characters.
 
 ## Tests
 
