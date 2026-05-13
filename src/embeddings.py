@@ -7,11 +7,11 @@ from typing import Sequence
 
 import numpy as np
 
-from src.config import DEFAULT_MODEL_NAME, EMBEDDING_META_PATH, EMBEDDINGS_PATH, INDEX_DIR
+from src.config import DEFAULT_MODEL_NAME, EMBEDDING_META_PATH, EMBEDDINGS_PATH, MODEL_CACHE_DIR
 
 
 def cached_model_snapshot_path(model_name: str, cache_dir: Path | None = None) -> Path | None:
-    cache_root = cache_dir or INDEX_DIR / "model_cache"
+    cache_root = cache_dir or MODEL_CACHE_DIR
     repo_cache = cache_root / f"models--{model_name.replace('/', '--')}"
     snapshots = repo_cache / "snapshots"
     if not snapshots.exists():
@@ -38,7 +38,7 @@ class SentenceTransformerEmbedder:
     ):
         from sentence_transformers import SentenceTransformer
 
-        model_cache = cache_dir or INDEX_DIR / "model_cache"
+        model_cache = cache_dir or MODEL_CACHE_DIR
         model_identifier = model_name
         if local_files_only:
             snapshot_path = cached_model_snapshot_path(model_name, model_cache)
@@ -118,7 +118,7 @@ def get_or_create_embeddings(
 ) -> np.ndarray:
     if not force_rebuild:
         cached = load_cached_embeddings(texts, model_name)
-        if cached is not None:
+        if cached is not None and cached_model_snapshot_path(model_name) is not None:
             return cached
 
     embedder = SentenceTransformerEmbedder(model_name=model_name)

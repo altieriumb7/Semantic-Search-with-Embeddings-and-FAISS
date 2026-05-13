@@ -57,6 +57,12 @@ def test_semantic_retrieval_returns_matching_chunk():
     assert results[0].method == "semantic"
 
 
+def test_semantic_retrieval_rejects_blank_query():
+    searcher = SemanticSearcher(chunks=sample_chunks(), faiss_index=FakeIndex([[1.0, 0.0], [0.0, 1.0]]), embedder=FakeEmbedder())
+
+    assert searcher.search("   ", top_k=1) == []
+
+
 def test_tfidf_retrieval_returns_matching_chunk():
     chunks = sample_chunks()
     vectorizer, matrix = build_tfidf(chunks)
@@ -66,4 +72,12 @@ def test_tfidf_retrieval_returns_matching_chunk():
 
     assert results[0].chunk.doc_id == "invoice"
     assert results[0].method == "tfidf"
+
+
+def test_tfidf_retrieval_rejects_blank_query():
+    chunks = sample_chunks()
+    vectorizer, matrix = build_tfidf(chunks)
+    searcher = TfidfSearcher(chunks=chunks, vectorizer=vectorizer, matrix=matrix)
+
+    assert searcher.search("", top_k=1) == []
 

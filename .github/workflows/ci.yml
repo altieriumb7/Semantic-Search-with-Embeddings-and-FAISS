@@ -18,3 +18,9 @@ jobs:
           pip install -r requirements.txt
       - name: Run tests
         run: pytest -q
+      - name: Build retrieval artifacts
+        run: python -m src.build_index
+      - name: Evaluate retrieval
+        run: python -m src.evaluate_retrieval
+      - name: Smoke test CLI search
+        run: python -m src.search --query "password reset" --method tfidf --top-k 1

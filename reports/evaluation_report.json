@@ -1,4 +1,6 @@
 {
+  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "input_fingerprint": "50b8bd5022720dbe3f04b151ac60aba78a18917fb3477cc897b21f9195741e16",
   "dataset": {
     "type": "synthetic",
     "description": "Synthetic support/product documentation with hand-labeled relevant document IDs.",
@@ -9,12 +11,16 @@
     "semantic": {
       "precision_at_k": 0.2285714285714286,
       "recall_at_k": 1.0,
-      "mrr": 1.0
+      "mrr": 1.0,
+      "success_at_1": 1.0,
+      "ndcg_at_k": 0.9942657706534419
     },
     "tfidf": {
       "precision_at_k": 0.2285714285714286,
       "recall_at_k": 1.0,
-      "mrr": 1.0
+      "mrr": 1.0,
+      "success_at_1": 1.0,
+      "ndcg_at_k": 0.9912296653812892
     }
   },
   "per_query": {
@@ -34,7 +40,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_mfa",
@@ -51,7 +59,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_invoice",
@@ -68,7 +78,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_refund",
@@ -85,7 +97,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_export",
@@ -102,7 +116,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_filters",
@@ -119,7 +135,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_slack",
@@ -136,7 +154,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_api_keys",
@@ -153,7 +173,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_retention",
@@ -170,7 +192,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_audit",
@@ -187,7 +211,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_offline",
@@ -204,7 +230,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_push",
@@ -221,7 +249,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_security_keys",
@@ -239,7 +269,9 @@
         ],
         "precision_at_k": 0.4,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_export_security",
@@ -257,7 +289,9 @@
         ],
         "precision_at_k": 0.4,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 0.9197207891481876
       }
     ],
     "tfidf": [
@@ -276,7 +310,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_mfa",
@@ -293,7 +329,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_invoice",
@@ -310,7 +348,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_refund",
@@ -327,7 +367,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_export",
@@ -344,7 +386,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_filters",
@@ -361,7 +405,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_slack",
@@ -378,7 +424,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_api_keys",
@@ -395,7 +443,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_retention",
@@ -412,7 +462,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_audit",
@@ -429,7 +481,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_offline",
@@ -446,7 +500,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_push",
@@ -463,7 +519,9 @@
         ],
         "precision_at_k": 0.2,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_security_keys",
@@ -481,7 +539,9 @@
         ],
         "precision_at_k": 0.4,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 1.0
       },
       {
         "query_id": "q_export_security",
@@ -499,7 +559,9 @@
         ],
         "precision_at_k": 0.4,
         "recall_at_k": 1.0,
-        "mrr": 1.0
+        "mrr": 1.0,
+        "success_at_1": 1.0,
+        "ndcg_at_k": 0.8772153153380493
       }
     ]
   },

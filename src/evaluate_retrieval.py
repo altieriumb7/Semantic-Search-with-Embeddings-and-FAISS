@@ -1,11 +1,19 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 from typing import Sequence
 
-from src.config import DEFAULT_MODEL_NAME, DEFAULT_TOP_K, EVALUATION_REPORT_PATH
+from src.config import (
+    CHUNKS_PATH,
+    DEFAULT_MODEL_NAME,
+    DEFAULT_TOP_K,
+    DOCUMENTS_PATH,
+    EVALUATION_QUERIES_PATH,
+    EVALUATION_REPORT_PATH,
+)
 from src.data_loader import EvaluationQuery, load_evaluation_queries
 from src.metrics import aggregate_metrics, ndcg_at_k, precision_at_k, recall_at_k, reciprocal_rank, success_at_1
 from src.retrieval import SearchResult, SemanticSearcher, TfidfSearcher, result_doc_ids
@@ -58,6 +66,23 @@ def build_qualitative_examples(semantic_rows: Sequence[dict], tfidf_rows: Sequen
     return examples
 
 
+def evaluation_input_fingerprint(model_name: str) -> str:
+    digest = hashlib.sha256()
+    digest.update(model_name.encode("utf-8"))
+    for path in (DOCUMENTS_PATH, EVALUATION_QUERIES_PATH, CHUNKS_PATH):
+        digest.update(path.name.encode("utf-8"))
+        digest.update(path.read_bytes())
+    return digest.hexdigest()
+
+
+def report_is_current(report: dict, model_name: str, k: int) -> bool:
+    return (
+        report.get("k") == k
+        and report.get("model_name") == model_name
+        and report.get("input_fingerprint") == evaluation_input_fingerprint(model_name)
+    )
+
+
 def evaluate_retrieval(
     k: int = DEFAULT_TOP_K,
     model_name: str = DEFAULT_MODEL_NAME,
@@ -72,6 +97,8 @@ def evaluate_retrieval(
     tfidf_rows, tfidf_summary = evaluate_searcher(TfidfSearcher(), queries, k)
 
     report = {
+        "model_name": model_name,
+        "input_fingerprint": evaluation_input_fingerprint(model_name),
         "dataset": {
             "type": "synthetic",
             "description": "Synthetic support/product documentation with hand-labeled relevant document IDs.",

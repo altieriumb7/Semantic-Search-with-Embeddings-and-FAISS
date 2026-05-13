@@ -1,4 +1,18 @@
+import os
 from pathlib import Path
+
+
+def _positive_int_from_env(name: str, default: int) -> int:
+    raw = os.getenv(name)
+    if raw is None:
+        return default
+    try:
+        value = int(raw)
+    except ValueError as exc:
+        raise ValueError(f"{name} must be an integer") from exc
+    if value <= 0:
+        raise ValueError(f"{name} must be positive")
+    return value
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data"
@@ -14,9 +28,18 @@ EMBEDDING_META_PATH = INDEX_DIR / "embedding_meta.json"
 FAISS_INDEX_PATH = INDEX_DIR / "faiss.index"
 TFIDF_PATH = INDEX_DIR / "tfidf.joblib"
 EVALUATION_REPORT_PATH = REPORTS_DIR / "evaluation_report.json"
+MODEL_CACHE_DIR = INDEX_DIR / "model_cache"
 
-DEFAULT_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+DEFAULT_MODEL_NAME = os.getenv("MODEL_NAME", "sentence-transformers/all-MiniLM-L6-v2")
 DEFAULT_CHUNK_SIZE_WORDS = 80
 DEFAULT_CHUNK_OVERLAP_WORDS = 20
-DEFAULT_TOP_K = 5
+DEFAULT_TOP_K = _positive_int_from_env("DEFAULT_TOP_K", 5)
+
+REQUIRED_SEARCH_ARTIFACTS = (
+    CHUNKS_PATH,
+    EMBEDDINGS_PATH,
+    EMBEDDING_META_PATH,
+    FAISS_INDEX_PATH,
+    TFIDF_PATH,
+)
 

@@ -1,0 +1,9 @@
+services:
+  semantic-search:
+    build: .
+    ports:
+      - "${PORT:-8501}:${PORT:-8501}"
+    environment:
+      MODEL_NAME: ${MODEL_NAME:-sentence-transformers/all-MiniLM-L6-v2}
+      DEFAULT_TOP_K: ${DEFAULT_TOP_K:-5}
+      PORT: ${PORT:-8501}

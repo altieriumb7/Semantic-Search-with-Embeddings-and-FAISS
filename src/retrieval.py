@@ -38,6 +38,8 @@ class SemanticSearcher:
         )
 
     def search(self, query: str, top_k: int = 5) -> list[SearchResult]:
+        if not query.strip() or top_k <= 0:
+            return []
         query_embedding = self.embedder.encode([query])
         scores, indices = self.index.search(np.asarray(query_embedding, dtype=np.float32), top_k)
         results: list[SearchResult] = []
@@ -57,6 +59,8 @@ class TfidfSearcher:
         self.matrix = matrix
 
     def search(self, query: str, top_k: int = 5) -> list[SearchResult]:
+        if not query.strip() or top_k <= 0:
+            return []
         ranked = rank_tfidf(query, self.vectorizer, self.matrix, top_k)
         return [
             SearchResult(rank=rank, score=score, chunk=self.chunks[index], method="tfidf")

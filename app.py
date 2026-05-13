@@ -3,26 +3,19 @@ from __future__ import annotations
 import html
 import json
 import re
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import streamlit as st
 from sklearn.decomposition import PCA
 
-from src.config import (
-    DEFAULT_MODEL_NAME,
-    DEFAULT_TOP_K,
-    EMBEDDINGS_PATH,
-    EVALUATION_REPORT_PATH,
-    FAISS_INDEX_PATH,
-    TFIDF_PATH,
-)
+from src.config import DEFAULT_MODEL_NAME, DEFAULT_TOP_K, EMBEDDINGS_PATH, EVALUATION_REPORT_PATH
 from src.data_loader import load_evaluation_queries
-from src.evaluate_retrieval import evaluate_searcher
+from src.evaluate_retrieval import evaluate_searcher, report_is_current
 from src.indexing import load_chunks
 from src.rag import extractive_answer
 from src.retrieval import SemanticSearcher, TfidfSearcher
+from src.runtime_checks import missing_search_artifacts, search_artifacts_ready
 
 
 EXAMPLE_QUERIES = [
@@ -34,7 +27,7 @@ EXAMPLE_QUERIES = [
 
 
 def artifacts_exist() -> bool:
-    return FAISS_INDEX_PATH.exists() and TFIDF_PATH.exists() and EMBEDDINGS_PATH.exists()
+    return search_artifacts_ready(DEFAULT_MODEL_NAME)
 
 
 @st.cache_resource(show_spinner=False)
@@ -49,7 +42,7 @@ def load_searchers(model_name: str):
 def load_or_compute_metrics(model_name: str, top_k: int) -> dict:
     if EVALUATION_REPORT_PATH.exists():
         report = json.loads(EVALUATION_REPORT_PATH.read_text(encoding="utf-8"))
-        if report.get("k") == top_k:
+        if report_is_current(report, model_name, top_k):
             return report["metrics"]
     queries = load_evaluation_queries()
     semantic, tfidf = load_searchers(model_name)
@@ -62,6 +55,8 @@ def load_or_compute_metrics(model_name: str, top_k: int) -> dict:
 def embedding_projection() -> pd.DataFrame:
     chunks = load_chunks()
     embeddings = np.load(EMBEDDINGS_PATH)
+    if len(embeddings) < 2:
+        return pd.DataFrame()
     coords = PCA(n_components=2, random_state=42).fit_transform(embeddings)
     return pd.DataFrame(
         {
@@ -110,6 +105,8 @@ def main() -> None:
 
     if not artifacts_exist():
         st.error("Search artifacts are missing.")
+        missing = "\n".join(str(path) for path in missing_search_artifacts(DEFAULT_MODEL_NAME))
+        st.code(missing, language="text")
         st.code("python -m src.build_index\npython -m src.evaluate_retrieval\nstreamlit run app.py", language="bash")
         st.stop()
 
@@ -120,6 +117,9 @@ def main() -> None:
         show_projection = st.toggle("Show embedding PCA", value=True)
 
     query = st.text_input("Search query", value=selected_example)
+    if not query.strip():
+        st.warning("Enter a search query.")
+        st.stop()
     semantic, tfidf = load_searchers(DEFAULT_MODEL_NAME)
 
     semantic_results = semantic.search(query, top_k=top_k)
@@ -149,8 +149,11 @@ def main() -> None:
     if show_projection:
         st.markdown("### Document Embedding PCA")
         projection = embedding_projection()
-        st.scatter_chart(projection, x="pc1", y="pc2", color="category", size=60)
-        st.dataframe(projection[["doc_id", "title", "category"]], hide_index=True, use_container_width=True)
+        if projection.empty:
+            st.info("At least two embeddings are required for PCA.")
+        else:
+            st.scatter_chart(projection, x="pc1", y="pc2", color="category", size=60)
+            st.dataframe(projection[["doc_id", "title", "category"]], hide_index=True, use_container_width=True)
 
 
 if __name__ == "__main__":

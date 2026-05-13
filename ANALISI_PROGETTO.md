@@ -34,7 +34,7 @@ Il repository è già una **pipeline Retrieval completa** ben separata per respo
 
 Per ridurre attrito operativo:
 - aggiunto `pytest.ini` con `pythonpath = .` e `testpaths = tests`;
-- verificato che la suite test sia ora eseguibile out-of-the-box in questo ambiente (`9 passed`).
+- verificato che la suite test sia ora eseguibile out-of-the-box in questo ambiente (`15 passed`).
 
 ## Roadmap consigliata
 

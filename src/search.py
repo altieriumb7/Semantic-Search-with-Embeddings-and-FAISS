@@ -34,6 +34,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    if not args.query.strip():
+        raise SystemExit("--query must not be blank")
     if args.method in {"semantic", "both"}:
         semantic = SemanticSearcher(model_name=args.model_name, local_files_only=not args.allow_download)
         print(format_results("Semantic search", semantic.search(args.query, args.top_k)))
